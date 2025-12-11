@@ -1,0 +1,286 @@
+# 🏰 Castle Escape - Text Adventure Game
+
+## 📖 Overview
+
+**Castle Escape** is a single-player text-based adventure game where you navigate through an abandoned castle, solve puzzles, collect items, and ultimately find the Golden Crown to win the game. As you explore the castle's 10 unique locations, you'll encounter challenges that require strategic thinking and careful inventory management.
+
+## 🎮 Features
+
+- **Character Creation:** Personalize your gaming experience with a custom character name
+- **Exploration:** Navigate through 10 interconnected rooms in an abandoned castle
+- **Inventory Management:** Collect and manage up to 4 items in your bag
+- **Puzzle Solving:** Use items strategically to unlock paths and solve mysteries
+- **Interactive NPCs:** Talk to characters who provide clues and assistance
+- **Dark Areas:** Some locations require specific items to navigate
+- **Map Tracking:** Visual representation of visited locations
+- **Win Condition:** Clear objective - find the Golden Crown and escape
+
+## 🛠️ Requirements
+
+- **Python 3.6** or higher
+- **No external libraries required** - runs on pure Python
+
+## 📥 Installation
+
+### Method 1: Direct Download
+
+1. Download the `castle_escape.py` file
+2. Open terminal/command prompt
+3. Navigate to the download directory:
+   ```bash
+   cd path/to/download/directory
+   ```
+4. Run the game:
+   ```bash
+   python castle_escape.py
+   ```
+
+### Method 2: Using Python IDLE (Recommended for Beginners)
+
+1. Download `castle_escape.py`
+2. Right-click the file → "Open with" → "Python IDLE"
+3. In IDLE, press **F5** or go to **Run → Run Module**
+
+### Method 3: On macOS/Linux
+
+```bash
+python3 castle_escape.py
+```
+
+## 🎯 How to Play
+
+### Starting the Game
+
+```
+==================================================
+CASTLE ESCAPE
+==================================================
+Enter your character's name: Alex
+
+Welcome, Alex! You find yourself at the entrance of an abandoned castle.
+Your goal: Find the Golden Crown and escape!
+Type 'help' at any time for commands.
+```
+
+### Basic Commands
+
+| Command | Action | Example |
+|---------|--------|---------|
+| `move` | Move to a different room | `move` → `north` |
+| `look` | Examine current room carefully | `look` |
+| `take` | Pick up an item | `take` → `Torch` |
+| `bag` | Check your inventory | `bag` |
+| `use` | Use an item from inventory | `use` → `Torch` |
+| `talk` | Interact with characters | `talk` |
+| `map` | Show visited rooms | `map` |
+| `help` | Display all commands | `help` |
+| `quit` | Exit the game | `quit` |
+
+### Game Locations
+
+The castle features 10 interconnected rooms:
+
+1. **Entrance Hall** - Starting point with a Torch
+2. **Courtyard** - Central area with multiple exits
+3. **Guard Tower** - High vantage point with a Crowbar
+4. **Library** - Contains books and a Rusty Key
+5. **Kitchen** - Find Healing Herb here
+6. **Armory** - Locked room containing a Sword
+7. **Study** - Contains a mysterious Note
+8. **Dungeon** - Dark area requiring light
+9. **Secret Passage** - Hidden route to throne room
+10. **Throne Room** - Final destination with the Golden Crown
+
+### Items to Collect
+
+1. **Torch** - Essential for navigating dark areas
+2. **Rusty Key** - Unlocks the Armory
+3. **Crowbar** - Can open hidden passages
+4. **Healing Herb** - Restores health and helps NPCs
+5. **Golden Crown** - Victory item (win condition)
+6. **Sword** - Found in the Armory
+7. **Note** - Provides clues about secrets
+
+### Strategic Tips
+
+- **Inventory Management:** You can only carry 4 items at once. Choose wisely!
+- **Dark Areas:** The Dungeon requires a Torch to explore
+- **Locked Doors:** The Armory needs the Rusty Key from the Library
+- **NPC Interaction:** Talking to characters can provide valuable clues
+- **Item Usage:** Some items have specific uses in particular locations
+
+## 🗺️ Game Map Layout
+
+```
+[Guard Tower]   [Courtyard]     [Kitchen]
+                [Entrance Hall] [Library]
+[Armory]                        [Study]
+                                [Dungeon]
+                                [Secret Passage]
+                                [Throne Room]
+```
+
+## 🏆 Victory Conditions
+
+To win the game, you must:
+
+1. Collect the Golden Crown from the Throne Room
+2. Be in the Throne Room while carrying the crown
+
+Your final score is calculated based on:
+
+- Number of rooms visited
+- Items collected
+- Turns taken (fewer is better)
+
+## 🚨 Troubleshooting
+
+### Common Issues
+
+1. **"python not found" error**
+   - Use `python3` instead of `python`
+   - Ensure Python is installed and added to PATH
+
+2. **Game closes immediately**
+   - Run from command prompt/terminal, not by double-clicking
+   - Check Python installation with `python --version`
+
+3. **Input not working**
+   - Ensure you're typing commands exactly as shown
+   - Press Enter after each command
+
+4. **File not found**
+   - Navigate to correct directory using `cd` command
+   - Verify file is named `castle_escape.py`
+
+### System Requirements Check
+
+```bash
+# Verify Python version
+python --version
+
+# Check file exists
+ls castle_escape.py  # On Linux/Mac
+dir castle_escape.py # On Windows
+```
+
+## 🔧 For Developers
+
+### Code Structure
+
+```
+main()
+├── Player Class
+│   ├── __init__(name)
+│   ├── add_item(item)
+│   ├── remove_item(item)
+│   └── show_inventory()
+├── initialize_game()
+├── game_loop()
+│   ├── display_current_room()
+│   ├── move_player()
+│   ├── pick_up_item()
+│   └── check_win_condition()
+└── Helper Functions
+```
+
+### Extending the Game
+
+The modular design allows easy extensions:
+
+1. **Add new rooms:** Extend the `rooms` dictionary
+2. **Add new items:** Update item handling functions
+3. **Add NPCs:** Extend `talk_to_character()` function
+4. **Add puzzles:** Create new special condition checks
+
+### Key Data Structures
+
+- **Rooms:** Dictionary with connections and properties
+- **Player:** Class instance storing game state
+- **Inventory:** List with maximum 4 items
+- **Visited Rooms:** Set for efficient tracking
+
+## 📊 Testing & Quality
+
+The game has been thoroughly tested for:
+
+- ✅ All commands work correctly
+- ✅ Inventory limit (4 items) enforced
+- ✅ Win condition properly triggers
+- ✅ Error handling for invalid inputs
+- ✅ Movement validation between rooms
+
+## 🤝 Contributing
+
+While this is a complete game, suggestions for improvements are welcome:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your improvements
+4. Submit a pull request
+
+## 📄 License
+
+This game was created as an educational project for the Introduction to Programming with Python course (NCC Education Limited).
+
+## 🎓 Educational Purpose
+
+This project demonstrates:
+
+- Object-oriented programming with Python classes
+- Modular program design
+- Data structure implementation
+- User input validation
+- Game state management
+- Testing strategies
+
+## 📞 Support
+
+For issues or questions:
+
+1. Check the troubleshooting section above
+2. Verify Python installation
+3. Ensure you're using correct commands
+4. Game tested on Windows, macOS, and Linux
+
+## 🚀 Quick Start
+
+Copy and paste this to start playing immediately:
+
+```bash
+# Download and run in one command (Linux/Mac)
+curl -O https://example.com/castle_escape.py && python3 castle_escape.py
+
+# Or create the file manually and run
+echo "Copy the code from castle_escape.py" > castle_escape.py
+python castle_escape.py
+```
+
+---
+
+**Happy exploring! May you find the Golden Crown and escape the castle!** 🏆
+
+*Pro tip: Pay attention to the Note in the Study - it holds an important clue!*
+```
+
+To use this README.md file:
+
+1. **Save as README.md:**
+   - Copy the entire content above
+   - Create a new file named `README.md`
+   - Paste the content and save
+
+2. **Place alongside your game:**
+   ```
+   project_folder/
+   ├── castle_escape.py
+   ├── README.md
+   └── (other files if any)
+   ```
+
+3. **The README.md file provides:**
+   - Professional documentation for users
+   - Installation instructions
+   - Gameplay guide
+   - Technical information for developers
+   - Proper markdown formatting for GitHub/GitLab
